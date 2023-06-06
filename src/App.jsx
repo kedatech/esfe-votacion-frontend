@@ -1,5 +1,6 @@
 import { Routes, Route } from 'react-router-dom'
 import Public from './views/public/Public.jsx'
+import './index.scss'
 
 function App() {
 

@@ -1,6 +1,9 @@
 import useElement from "../../../shared/store/elementStore";
 import {Link} from "react-router-dom"
 import Menu from "./_Menu"
+import logo from './../../../../public/logo-esfe.png'
+import { FaBookOpen, FaThumbsUp, FaLock} from "react-icons/fa";
+
 const NavBar = () => {
   
   const { modalMenu } = useElement()
@@ -8,12 +11,27 @@ const NavBar = () => {
 
   return ( 
     <nav className="navbar">
-      <h1 className="text-gradient">ESFE</h1>
+      <h2 className="title">ESFE/Agapé</h2>
 
       <div className="nav-list" id={modalMenu}>
-        <Link to={"/home"}>Home</Link>
-        <Link to={"/app"}>App</Link>
-        <Link to={"/home"}>Home</Link>
+        <div className="logo">
+          <img src={logo} />
+          <p>Concurso Aniversario</p>
+        </div>
+        
+        <li>
+          <FaBookOpen/> 
+          <Link to={"/app"}>¿Cómo Funciona?</Link>
+        </li>
+        <li>
+          <FaThumbsUp/> 
+          <Link to={"/app"}>Creadores</Link>
+        </li>
+        <li>
+          <FaLock/> 
+          <Link to={"/app"}>Gestionar</Link>
+        </li>
+        
       </div>
       <Menu />
 

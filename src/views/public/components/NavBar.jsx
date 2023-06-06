@@ -1,31 +1,25 @@
+import useElement from "../../../shared/store/elementStore";
 import {Link} from "react-router-dom"
-import { useState } from "react";
-
-
+import Menu from "./_Menu"
 const NavBar = () => {
-
-  const [menu, setMenu] = useState(false)
-  const handleClick = () => {
-    setMenu(!menu)
-    document.getElementById("modalMenu").classList.toggle("active")
-  }
   
-  return ( 
-    <nav className="navbar" id="modalMenu">
-      <h1 className="text-gradient">ESFE/Agape</h1>
+  const { modalMenu } = useElement()
+  console.log(modalMenu)
 
-      <div className="nav-list">
-        <Link to={"/home"}>¿Como Funciona?</Link>
-        <Link to={"/app"}>Creadores</Link>
-        <Link to={"/home"}>Gestionar</Link>
+  return ( 
+    <nav className="navbar">
+      <h1 className="text-gradient">ESFE</h1>
+
+      <div className="nav-list" id={modalMenu}>
+        <Link to={"/home"}>Home</Link>
+        <Link to={"/app"}>App</Link>
+        <Link to={"/home"}>Home</Link>
       </div>
+      <Menu />
+
       
-      <div className={menu?"menu btn2 open":"menu btn2"} onClick={handleClick} data-menu="2">
-          <div className="icon"></div>
-      </div>
     </nav>
    );
 }
  
 export default NavBar;
-

@@ -1,4 +1,4 @@
-import useElement from "../../../shared/store/elementStore";
+import useElement from "../../../shared/utils/store/elementStore";
 import {Link} from "react-router-dom"
 import Menu from "./_Menu"
 import logo from './../../../../public/logo-esfe.png'

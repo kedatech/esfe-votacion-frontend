@@ -1,5 +1,12 @@
 @use './navbar.scss';
+@use './cards.scss';
 
 body{
   background: #f8f8f8;
+}
+.contenedor-main{
+  width: 100%;
+  max-width: 2000px;
+  padding: 1em;
+  margin:0 auto;
 }

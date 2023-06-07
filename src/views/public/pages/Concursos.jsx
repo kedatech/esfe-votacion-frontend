@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { getAll } from '../../../shared/utils/api/concursos.js';
+import {Link} from 'react-router-dom'
 
 function Concursos() {
   const [concursos, setConcursos] = useState([]);
@@ -19,15 +20,22 @@ function Concursos() {
   }, []);
 
   return (
-    <div>
+    <div className='concursos'>
       {
         concursos?.map(el=>(
-          <div key={el.Id}>
+          <Link className='card-concurso' to={`categoria/${el.Id}`} key={el.Id}>
             <h2>{el.Nombre}</h2>
-            <p>{el.Descripcion}</p>
-            <p>{el.Tipo}</p>
-            <b>{el.Activo?"Activo":"Finalizado"}</b>
-          </div>
+            
+            <img src="/icons/baile-icon.png" alt="" />
+            
+            <div>
+              <p>{el.Descripcion}</p>
+              <p>{el.Tipo}</p>
+              {el.Activo
+              ?<b className='green'>Activo</b>
+              :<b className='red'>Finalizado</b>}
+            </div>
+          </Link>
         ))
       }
     </div>

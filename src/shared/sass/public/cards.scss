@@ -1,0 +1,55 @@
+@import "../base.scss";
+.concursos{
+  display: grid;
+}
+.card-concurso{
+  display: grid;
+  grid-template-columns: 150px 1fr;
+  grid-template-rows: 30px 1fr;
+  grid-template-areas: 
+  "title title"
+  "imagen desc";
+  gap:0 1em;
+  background: #eaf0ff;
+  text-decoration: none;
+  color:#333;
+  padding: 1em ;
+  border-radius: .8em;
+  margin-bottom: 1em;
+  h2{
+    grid-area: title;
+    margin: 0;
+    width: 100%;
+    font-weight: 600;
+    color: $light;
+  }
+  img{
+    grid-area: imagen;
+    width: 100%;
+  }
+  div{
+    grid-area: desc;
+
+    .green{
+      color: #1DEB25;
+    }
+    .red{
+      color: #F64141;
+    }
+  }
+}
+
+@media (width > 700px){
+  .concursos{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1em;
+  }
+}
+@media (width > 1000px){
+  .concursos{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 1em;
+  }
+}

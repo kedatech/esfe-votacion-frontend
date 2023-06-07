@@ -1,12 +1,13 @@
 import {Route, Routes} from 'react-router-dom'
 import NavBar from './components/NavBar'
+import Home from './pages/Home'
 function Public() {
   return (
-    <div>
+    <div className='public'>
       
       <NavBar />
       <Routes>
-        <Route path='concursos' element={<h1>concurso</h1>}/>
+        <Route path='home' element={<Home />}/>
         <Route path='categorias' element={<h1>categorias</h1>}/>
       </Routes>
     </div>

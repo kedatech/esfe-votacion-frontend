@@ -19,18 +19,12 @@ const NavBar = () => {
           <p>Concurso Aniversario</p>
         </div>
         
-        <li>
-          <FaBookOpen/> 
-          <Link to={"/app"}>¿Cómo Funciona?</Link>
-        </li>
-        <li>
-          <FaThumbsUp/> 
-          <Link to={"/app"}>Creadores</Link>
-        </li>
-        <li>
-          <FaLock/> 
-          <Link to={"/app"}>Gestionar</Link>
-        </li>
+          
+          <Link to={"/app"}><FaBookOpen/>  ¿Cómo Funciona?</Link>
+          
+          <Link to={"/app"}><FaThumbsUp/> Creadores</Link>
+           
+          <Link to={"/app"}><FaLock/>Gestionar</Link>
         
       </div>
       <Menu />

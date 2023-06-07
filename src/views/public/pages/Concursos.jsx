@@ -19,11 +19,12 @@ function Concursos() {
     fetchData();
   }, []);
 
+
   return (
     <div className='concursos'>
       {
         concursos?.map(el=>(
-          <Link className='card-concurso' to={`categoria/${el.Id}`} key={el.Id}>
+          <Link className='card-concurso' to={`categorias/${el.Id}`} key={el.Id}>
             <h2>{el.Nombre}</h2>
             
             <img src="/icons/baile-icon.png" alt="" />

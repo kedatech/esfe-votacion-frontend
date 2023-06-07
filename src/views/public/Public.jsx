@@ -10,7 +10,7 @@ function Public() {
         <Routes>
           <Route path='home' element={<Home />}/>
           <Route path='concursos' element={<Concursos />}/>
-          <Route path='categorias/:id' element={<Categorias />}/>
+          <Route path='concursos/categorias/:id' element={<Categorias />}/>
         </Routes>
       </div>
     </div>

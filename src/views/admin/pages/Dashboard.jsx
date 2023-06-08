@@ -9,7 +9,11 @@ function Dashboard() {
       <h1>Administrar concursos</h1>
       <Routes>
         <Route index element={<Navigate to={"concursos"}/>}/>
-        <Route path='concursos' element={<Concursos handleDelete={handleDelete} handleEdit={handleEdit}/>}/>
+        <Route path='concursos'
+         element={<Concursos 
+         handleDelete={handleDelete} 
+         handleEdit={handleEdit}/>}
+        />
       </Routes>
       
     </div>

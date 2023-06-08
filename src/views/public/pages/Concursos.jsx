@@ -26,7 +26,8 @@ function Concursos({handleDelete=null, handleEdit=null}) {
     <div className='concursos'>
       {
         concursos?.map(el=>(
-          <Link className='card-concurso' to={`categorias/${el.Id}`} key={el.Id}>
+          <div key={el.Id}>
+          <Link className='card-concurso' to={`categorias/${el.Id}`}>
             <h2>{el.Nombre}</h2>
             
             <img src="/icons/baile-icon.png" alt="" />
@@ -38,15 +39,17 @@ function Concursos({handleDelete=null, handleEdit=null}) {
               ?<b className='green'>Activo</b>
               :<b className='red'>Finalizado</b>}
             </div>
+          </Link>
             {
               handleDelete !== null && handleEdit !== null ? 
               <div>
                 <button onClick={handleDelete}>Eliminar</button>
                 <button onClick={handleEdit}>Editar</button>
+                <br />
               </div> :null
               
             }
-          </Link>
+          </div>
         ))
       }
     </div>

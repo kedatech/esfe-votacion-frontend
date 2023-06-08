@@ -2,6 +2,8 @@ import {Route, Routes} from 'react-router-dom'
 import NavBar from './components/NavBar'
 import {Home, Concursos, Categorias} from './pages/index'
 function Public() {
+  
+  
   return (
     <div className='public'>
       

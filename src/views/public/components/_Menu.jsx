@@ -1,13 +1,12 @@
-import { useState } from "react";
+// import { useState } from "react";
 import useElement from "../../../shared/utils/store/elementStore"
 
 const Menu = () => {
 
-  const [menu, setMenu] = useState(false)
-  const { modalMenu } = useElement()
+  // const [menu, setMenu] = useState(false)
+  const { menu, setMenu } = useElement()
   const handleClick = () => {
     setMenu(!menu)
-    document.getElementById(modalMenu).classList.toggle("active")
   }
 
   return ( 

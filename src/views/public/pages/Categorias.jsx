@@ -31,9 +31,11 @@ function Categoria() {
     <div className='container'>
       <div className='accordion'>
         {
-          categorias.map( el => (
+          categorias.length === 0 
+          ? <h1>No hay categorias</h1>
+          : categorias.map( el => (
             <Acordion item={el} expandedItem={expandedItem} toggleAccordion={toggleAccordion} key={el.Id}/>
-          ))
+            ))
         }
       </div>
        

@@ -79,11 +79,11 @@ $text: $dark;
       opacity: 1;
       max-height:max-content;
       transition: all 200ms linear;
-      padding: 1em 0;
     }
   }
   .accordion-content {
     opacity: 0;
+    padding: 1em 0;
     max-height: 0;
     overflow: hidden;
     transition: opacity 200ms linear, max-height 200ms linear;

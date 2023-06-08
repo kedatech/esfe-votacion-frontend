@@ -1,5 +1,5 @@
 import useElement from "../../../shared/utils/store/elementStore";
-import {Link} from "react-router-dom"
+import {Link, NavLink} from "react-router-dom"
 import Menu from "./_Menu"
 import logo from './../../../../public/logo-esfe.png'
 
@@ -8,30 +8,55 @@ import { FaBookOpen} from "react-icons/fa";
 
 const NavBar = () => {
   
-  const { modalMenu } = useElement()
-  console.log(modalMenu)
-
+  const { menu, setMenu } = useElement()
+  
+  const handleClick = () => {
+    setMenu(!menu)
+  }
+    
   return ( 
+    <>
+    <div onClick={handleClick} className={`back-modal ${menu?"active":""}`}></div>
     <nav className="navbar">
       <Link to={"/"} className="title">ESFE/Agapé</Link>
 
-      <div className="nav-list" id={modalMenu}>
+      <div className={`nav-list ${menu?"active":""}`} >
         <div to={"/"} className="logo">
           <img src={logo} />
           <p>Concurso Aniversario</p>
         </div>
         
-          
-          <Link to={"/concursos"}><ImTrophy/>Concursos</Link>
-          <Link to={"/estadisticas"}><ImStatsDots/>Estadisticas</Link>
-          {/* <Link to={"/gestionar"}><FaLock/>Gestionar</Link> */}
-          <Link to={"/que-es-"}><FaBookOpen/> Información</Link>
+        <NavLink 
+          className={({isActive})=>(isActive?"navlink-active":null)} 
+          to={"/concursos"}
+          onClick={handleClick}
+        > 
+         <ImTrophy/> Concursos   
+        </NavLink>
+        
+        <NavLink 
+          className={({isActive})=>(isActive?"navlink-active":null)} 
+          to={"/estadisticas"}
+          onClick={handleClick}
+        > 
+         <ImStatsDots/> Estadisticas   
+        </NavLink>
+
+        <NavLink 
+          className={({isActive})=>(isActive?"navlink-active":null)} 
+          to={"/que-es"}
+          onClick={handleClick}
+        > 
+         <FaBookOpen/> Información   
+        </NavLink>
+
         
       </div>
       <Menu />
 
       
     </nav>
+    </>
    );
 }
  

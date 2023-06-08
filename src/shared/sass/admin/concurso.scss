@@ -1,0 +1,39 @@
+// Estilos base para todos los tamaños de pantalla
+.from-concurso {
+  max-width: 400px;
+  margin: 0 auto;
+
+  input[type="text"],
+  select {
+    width: 100%;
+    margin-bottom: 10px;
+    padding: 5px;
+    box-sizing: border-box;
+  }
+
+  label {
+    display: block;
+    margin-bottom: 5px;
+  }
+
+  input[type="radio"] {
+    margin-right: 5px;
+  }
+
+  button {
+    width: 100%;
+    padding: 10px;
+    background-color: #4caf50;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+  }
+
+  // Estilos para tamaños de pantalla más grandes
+  @media screen and (min-width: 768px) {
+    input[type="text"],
+    select {
+      width: 50%;
+    }
+  }
+}

@@ -11,7 +11,7 @@ const NavBar = () => {
   const { menu, setMenu } = useElement()
   
   const handleClick = () => {
-    setMenu(!menu)
+    setMenu(false)
   }
     
   return ( 

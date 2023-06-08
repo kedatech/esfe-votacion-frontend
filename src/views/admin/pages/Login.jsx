@@ -28,41 +28,44 @@ function Login() {
   };
 
   return (
-    <form className="login-form" onSubmit={handleSubmit}>
-      <h1>Login</h1>
-      <img src="/logo-esfe.png" alt="" />
-      <div className="form-input-material">
-        <input
-          type="text"
-          name="user"
-          id="username"
-          placeholder=" "
-          autoComplete="off"
-          className="form-control-material"
-          required
-          value={credentials.user}
-          onChange={handleInputChange}
-        />
-        <label htmlFor="username">Username</label>
-      </div>
-      <div className="form-input-material">
-        <input
-          type="password"
-          name="password"
-          id="password"
-          placeholder=" "
-          autoComplete="off"
-          className="form-control-material"
-          required
-          value={credentials.password}
-          onChange={handleInputChange}
-        />
-        <label htmlFor="password">Password</label>
-      </div>
-      <button type="submit" className="btn btn-primary btn-ghost">
-        Login
-      </button>
-    </form>
+    <div className="container-form">
+
+      <form className="login-form" onSubmit={handleSubmit}>
+        <h1>Login</h1>
+        <img src="/logo-esfe.png" alt="" />
+        <div className="form-input-material">
+          <input
+            type="text"
+            name="user"
+            id="username"
+            placeholder=" "
+            autoComplete="off"
+            className="form-control-material"
+            required
+            value={credentials.user}
+            onChange={handleInputChange}
+          />
+          <label htmlFor="username">Username</label>
+        </div>
+        <div className="form-input-material">
+          <input
+            type="password"
+            name="password"
+            id="password"
+            placeholder=" "
+            autoComplete="off"
+            className="form-control-material"
+            required
+            value={credentials.password}
+            onChange={handleInputChange}
+          />
+          <label htmlFor="password">Password</label>
+        </div>
+        <button type="submit" className="btn btn-primary btn-ghost">
+          Login
+        </button>
+      </form>
+    </div>
   );
 }
 

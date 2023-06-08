@@ -1,8 +1,10 @@
 import { useEffect, useState } from 'react';
 import { getAll } from '../../../shared/utils/api/concursos.js';
 import {Link} from 'react-router-dom'
+import PropTypes from 'prop-types';
 
-function Concursos() {
+function Concursos({handleDelete=null, handleEdit=null}) {
+  // const {handleDelete, handleEdit } = props
   const [concursos, setConcursos] = useState([]);
 
   useEffect(() => {
@@ -36,6 +38,14 @@ function Concursos() {
               ?<b className='green'>Activo</b>
               :<b className='red'>Finalizado</b>}
             </div>
+            {
+              handleDelete !== null && handleEdit !== null ? 
+              <div>
+                <button onClick={handleDelete}>Eliminar</button>
+                <button onClick={handleEdit}>Editar</button>
+              </div> :null
+              
+            }
           </Link>
         ))
       }
@@ -43,4 +53,8 @@ function Concursos() {
   );
 }
 
+Concursos.propTypes = {
+  handleDelete: PropTypes.func,
+  handleEdit: PropTypes.func
+}
 export default Concursos;

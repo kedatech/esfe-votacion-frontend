@@ -1,3 +1,11 @@
 @use './aqua.min.css';
 @use './login.scss';
+@use './concurso.scss';
+
+h1, h2{
+  color: #444;
+}
+.admin{
+  padding: 1em;
+}
 

@@ -13,6 +13,7 @@ function Public() {
           <Route path='home' element={<Home />}/>
           <Route path='concursos' element={<Concursos />}/>
           <Route path='concursos/categorias/:id' element={<Categorias />}/>
+          <Route path='admin/categorias/:id' element={<Categorias />}/>
         </Routes>
       </div>
     </div>

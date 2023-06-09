@@ -1,0 +1,38 @@
+@use './aqua.min.css';
+@use './login.scss';
+@use './concurso.scss';
+
+h1, h2{
+  color: #444;
+}
+.admin{
+  padding: 1em;
+}
+.admin-concursos{
+  display: grid;
+  grid-template-columns: 300px 1fr;
+  grid-template-rows: 60px 1fr;
+  grid-template-areas: 
+  "title title"
+  "form concursos";
+}
+
+.admin-concursos{
+  gap: 1em;
+  .admin-title{
+    grid-area: title;
+  }
+  .from-concurso{
+    grid-area: form;
+  }
+  .concursos{
+    grid-area: concursos;
+  }
+}
+
+@media (width < 800px){
+  .admin-concursos{
+    display: flex;
+    flex-direction: column;
+  }
+}

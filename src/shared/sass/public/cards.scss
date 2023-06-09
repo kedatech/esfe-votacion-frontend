@@ -2,6 +2,28 @@
 .concursos{
   display: grid;
 }
+.btn-container{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1em;
+  padding: 0 1em;
+  button{
+    border: none;
+    outline: none;
+    padding: .7em;
+    border-radius: .7em;
+    color: #fff;
+    margin-bottom: 1em;
+  }
+  .btn-delete{
+    background: #ca4f4f;
+    margin-right: .5em;
+  }
+  .btn-edit{
+    background: #70c7b8;
+    margin-right: .5em;
+  }
+}
 .card-concurso{
   display: grid;
   grid-template-columns: 150px 1fr;
@@ -37,6 +59,7 @@
       color: #F64141;
     }
   }
+ 
 }
 
 @media (width > 700px){

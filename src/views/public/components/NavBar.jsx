@@ -1,7 +1,7 @@
 import useElement from "../../../shared/utils/store/elementStore";
 import {Link, NavLink} from "react-router-dom"
 import Menu from "./_Menu"
-import logo from './../../../../public/logo-esfe.png'
+import logo from '/logo-esfe.png'
 
 import { ImStatsDots, ImTrophy } from "react-icons/im";
 import { FaBookOpen} from "react-icons/fa";
@@ -11,7 +11,7 @@ const NavBar = () => {
   const { menu, setMenu } = useElement()
   
   const handleClick = () => {
-    setMenu(!menu)
+    setMenu(false)
   }
     
   return ( 

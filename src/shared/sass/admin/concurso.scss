@@ -1,0 +1,36 @@
+// Estilos base para todos los tamaños de pantalla
+.from-concurso {
+  width: 100%;
+  display:flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+
+  input {
+    width: 100%;
+    margin-bottom: 10px;
+    padding: 5px;
+    box-sizing: border-box;
+  }
+
+  label {
+    display: flex;
+    padding: .5em 0;
+    margin-bottom: 5px;
+  }
+
+  input[type="radio"] {
+    margin-right: 5px;
+  }
+
+  button {
+    width: 100%;
+    padding: 10px;
+    background-color: #5dcf61;
+    border-radius: .7em;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+  }
+
+}

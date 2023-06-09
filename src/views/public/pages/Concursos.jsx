@@ -1,8 +1,10 @@
 import { useEffect, useState } from 'react';
 import { getAll } from '../../../shared/utils/api/concursos.js';
 import {Link} from 'react-router-dom'
+import PropTypes from 'prop-types';
 
-function Concursos() {
+function Concursos({handleDelete=null, handleEdit=null,updateFlag}) {
+  // const {handleDelete, handleEdit } = props
   const [concursos, setConcursos] = useState([]);
 
   useEffect(() => {
@@ -17,14 +19,15 @@ function Concursos() {
     };
 
     fetchData();
-  }, []);
+  }, [updateFlag]);
 
 
   return (
     <div className='concursos'>
       {
         concursos?.map(el=>(
-          <Link className='card-concurso' to={`categorias/${el.Id}`} key={el.Id}>
+          <div key={el.Id}>
+          <Link className='card-concurso' to={`categorias/${el.Id}`}>
             <h2>{el.Nombre}</h2>
             
             <img src="/icons/baile-icon.png" alt="" />
@@ -37,10 +40,25 @@ function Concursos() {
               :<b className='red'>Finalizado</b>}
             </div>
           </Link>
+            {
+              handleDelete !== null && handleEdit !== null ? 
+              <div className='btn-container'>
+                <button className='btn-delete' onClick={()=>handleDelete(el.Id)}>Eliminar</button>
+                <button className='btn-edit' onClick={()=>handleEdit(el)}>Editar</button>
+                <br />
+              </div> :null
+              
+            }
+          </div>
         ))
       }
     </div>
   );
 }
 
+Concursos.propTypes = {
+  handleDelete: PropTypes.func,
+  handleEdit: PropTypes.func,
+  updateFlag: PropTypes.bool
+}
 export default Concursos;

@@ -1,0 +1,41 @@
+@import "../base.scss";
+@import url('https://fonts.googleapis.com/css?family=Hind:300,400&display=swap');
+
+.Scanner-Video-Render{
+  border-radius: 18px;
+  justify-content: center; 
+}
+@media (max-width: 768px) {
+    .Scanner-Video-Render {
+       width: 90%;
+    }
+  }
+  .scanner-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    justify-content: center; 
+  }
+  .video-container {
+    display: flex;
+    justify-content: center; 
+    align-items: center;
+    width: 90%; 
+}
+  .button-cancel-camera{
+    margin: 5px;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 6px;
+    background-color: $medium;
+    color: white;
+    width: 100%;
+    max-width: 600px;
+    cursor: pointer;
+    transition: all 0.3s ease; // Transición de color
+
+  &:hover {
+    background-color: $light;
+    transform: scale(1.01);
+  }
+}

@@ -1,7 +1,9 @@
+import QRscanner from "../components/QRscanner"
+
 function Home() {
   return (
     <div>
-      lorem
+      <QRscanner/>
     </div>
   )
 }

@@ -18,10 +18,10 @@ const NavBar = () => {
     <>
     <div onClick={handleClick} className={`back-modal ${menu?"active":""}`}></div>
     <nav className="navbar">
-      <Link to={"/"} className="title">ESFE/Agapé</Link>
+      <Link to={"/home"} className="title">ESFE/Agapé</Link>
 
       <div className={`nav-list ${menu?"active":""}`} >
-        <div to={"/"} className="logo">
+        <div to={"/home"} className="logo">
           <img src={logo} />
           <p>Concurso Aniversario</p>
         </div>

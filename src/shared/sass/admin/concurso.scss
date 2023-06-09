@@ -1,10 +1,12 @@
 // Estilos base para todos los tamaños de pantalla
 .from-concurso {
-  max-width: 400px;
-  margin: 0 auto;
+  width: 100%;
+  display:flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
 
-  input[type="text"],
-  select {
+  input {
     width: 100%;
     margin-bottom: 10px;
     padding: 5px;
@@ -12,7 +14,8 @@
   }
 
   label {
-    display: block;
+    display: flex;
+    padding: .5em 0;
     margin-bottom: 5px;
   }
 
@@ -23,17 +26,11 @@
   button {
     width: 100%;
     padding: 10px;
-    background-color: #4caf50;
+    background-color: #5dcf61;
+    border-radius: .7em;
     color: #fff;
     border: none;
     cursor: pointer;
   }
 
-  // Estilos para tamaños de pantalla más grandes
-  @media screen and (min-width: 768px) {
-    input[type="text"],
-    select {
-      width: 50%;
-    }
-  }
 }

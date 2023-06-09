@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { Route, Routes, Navigate } from 'react-router-dom';
-import { Login, Dashboard } from './pages/index';
+import { Login, Concursos } from './pages/index';
 import { authAdmin } from '../../shared/utils/api/verifiy';
 
 function Admin() {
@@ -34,7 +34,7 @@ function Admin() {
           :<Routes>
             {
               validate ? (
-                <Route path="/*" element={<Dashboard />} />
+                <Route path="/*" element={<Concursos />} />
               ) : (
                 <Route path="/" element={<Navigate to="login" />} />
               )

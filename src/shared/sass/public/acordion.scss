@@ -9,11 +9,11 @@ $text: $dark;
 }
 
 .accordion {
+  width: 100%;
   .accordion-item {
-    border-bottom: 1px solid $light;
-    button[aria-expanded='true'] {
-      border-bottom: 1px solid $medium;
-    }
+    margin: auto;
+    max-width: 800px;
+    border-bottom: 1px solid $dark;
   }
   button {
     position: relative;

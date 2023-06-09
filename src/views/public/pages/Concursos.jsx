@@ -44,7 +44,7 @@ function Concursos({handleDelete=null, handleEdit=null,updateFlag}) {
               handleDelete !== null && handleEdit !== null ? 
               <div className='btn-container'>
                 <button className='btn-delete' onClick={()=>handleDelete(el.Id)}>Eliminar</button>
-                <button className='btn-edit' onClick={()=>handleEdit()}>Editar</button>
+                <button className='btn-edit' onClick={()=>handleEdit(el)}>Editar</button>
                 <br />
               </div> :null
               

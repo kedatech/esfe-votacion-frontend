@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { getById } from '../../../shared/utils/api/';
+import { getById } from '../../../shared/utils/api/concursos';
 import { useParams } from 'react-router-dom'
 import Acordion from '../components/Acordion'
 

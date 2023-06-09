@@ -3,7 +3,7 @@ import { getAll } from '../../../shared/utils/api/concursos.js';
 import {Link} from 'react-router-dom'
 import PropTypes from 'prop-types';
 
-function Concursos({handleDelete=null, handleEdit=null}) {
+function Concursos({handleDelete=null, handleEdit=null,updateFlag}) {
   // const {handleDelete, handleEdit } = props
   const [concursos, setConcursos] = useState([]);
 
@@ -19,7 +19,7 @@ function Concursos({handleDelete=null, handleEdit=null}) {
     };
 
     fetchData();
-  }, []);
+  }, [updateFlag]);
 
 
   return (
@@ -42,9 +42,9 @@ function Concursos({handleDelete=null, handleEdit=null}) {
           </Link>
             {
               handleDelete !== null && handleEdit !== null ? 
-              <div>
-                <button onClick={handleDelete}>Eliminar</button>
-                <button onClick={handleEdit}>Editar</button>
+              <div className='btn-container'>
+                <button className='btn-delete' onClick={()=>handleDelete(el.Id)}>Eliminar</button>
+                <button className='btn-edit' onClick={()=>handleEdit()}>Editar</button>
                 <br />
               </div> :null
               
@@ -58,6 +58,7 @@ function Concursos({handleDelete=null, handleEdit=null}) {
 
 Concursos.propTypes = {
   handleDelete: PropTypes.func,
-  handleEdit: PropTypes.func
+  handleEdit: PropTypes.func,
+  updateFlag: PropTypes.bool
 }
 export default Concursos;

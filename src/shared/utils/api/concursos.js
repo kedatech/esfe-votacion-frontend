@@ -24,3 +24,22 @@ export async function getById(Id) {
     throw error; // Lanzar el error nuevamente para manejarlo en el componente
   }
 }
+
+
+export async function deleteItem(Id) {
+  try {
+    const auth = JSON.parse(localStorage.getItem('authResult'));
+    const response = await fetch(`${url}/${Id}`, {
+      method: 'DELETE',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${auth.token}`,
+      }
+    });
+    return await response.json();
+  } catch (error) {
+    console.error('Error al obtener los datos:', error);
+    throw error;
+  }
+}
+

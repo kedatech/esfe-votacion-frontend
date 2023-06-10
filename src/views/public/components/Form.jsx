@@ -1,60 +1,65 @@
 import { useState } from 'react';
+import { authEstudiante } from '../../../shared/utils/api/auth';
 
 function Form() {
   const [formData, setFormData] = useState({
-    codigoEstudiante: '',
-    carrera: '',
-    anio: ''
+    Codigo: '',
+    IdCarrera: '',
+    IdAnio: ''
   });
 
   const handleChange = (event) => {
     const { name, value } = event.target;
-    setFormData((prevFormData) => ({
-      ...prevFormData,
+    setFormData(() => ({
+      ...formData,
       [name]: value
     }));
   };
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
-    console.log("algo")
+    const result = await authEstudiante(formData);
+    if(!result.error){
+
+      localStorage.setItem("authEstudianteResult",JSON.stringify(result.token))
+      window.location.assign("/home")
+    }
   };
 
   return (
     <form onSubmit={handleSubmit}>
       <input
         type="text"
-        name="codigoEstudiante"
+        name="Codigo"
         placeholder="Codigo de Estudiante"
-        value={formData.codigoEstudiante}
+        value={formData.Codigo}
         onChange={handleChange}
       />
 
-      <label htmlFor="carreraw">Selecciona Carrera:</label>
+      <label htmlFor="IdCarrera">Selecciona Carrera:</label>
       <select
-        id="carreraw"
-        name="carrera"
-        value={formData.carrera}
+        id="IdCarrera"
+        name="IdCarrera"
+        value={formData.IdCarrera}
         onChange={handleChange}
       >
         <option value="">Selecciona una opción</option>
-        <option value="TIDS">TIDS</option>
-        <option value="TIE">TIE</option>
-        <option value="TM">TM</option>
+        <option value="1">TIDS</option>
+        <option value="2">TIE</option>
+        <option value="3">TM</option>
       </select>
 
-      <label htmlFor="anios">Selecciona Año:</label>
+      <label htmlFor="IdAnios">Selecciona Año:</label>
       <select
-        id="anios"
-        name="anio"
-        value={formData.anio}
+        id="IdAnios"
+        name="IdAnio"
+        value={formData.IdAnio}
         onChange={handleChange}
       >
         <option value="">Selecciona una opción</option>
-        <option value="1° año">1° año</option>
-        <option value="2° año">2° año</option>
-        <option value="3° año">3° año</option>
-        <option value="4° año">4° año</option>
+        <option value="1">1° año</option>
+        <option value="2">2° año</option>
+        <option value="3">4° año</option>
       </select>
 
       <button type="submit">Enviar</button>

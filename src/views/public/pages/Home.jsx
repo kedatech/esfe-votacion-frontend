@@ -3,13 +3,15 @@ import QRscanner from "../components/QRscanner"
 import Form from "../components/Form"
 
 function Home() {
+  const authResult = JSON.parse(localStorage.getItem('authEstudianteResult'));
   const [validate, setValidate] = useState(false);
   // const [loading, setLoading] = useState(true);
   useEffect(() => {
     
-    return () => {
-      
+    if(authResult){
+      setValidate(true)
     }
+    
   }, [])
   
   return (

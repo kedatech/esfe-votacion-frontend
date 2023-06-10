@@ -9,8 +9,8 @@ function FromConcurso() {
     Id: '',
     Nombre: '',
     Descripcion: '',
-    Tipo: 'puntaje',
-    Activo: 1
+    Estado: 'no-iniciado',
+    Tipo: 'puntaje'
   });
 
   const handleDelete = async (Id) => {
@@ -26,8 +26,8 @@ function FromConcurso() {
       Id: concurso.Id,
       Nombre: concurso.Nombre,
       Descripcion: concurso.Descripcion,
-      Tipo: concurso.Tipo,
-      Activo: concurso.Activo
+      Estado: concurso.Estado,
+      Tipo: concurso.Tipo
     });
     console.log("edit");
   };
@@ -49,8 +49,8 @@ function FromConcurso() {
       Id: '',
       Nombre: '',
       Descripcion: '',
-      Tipo: 'puntaje',
-      Activo: 1
+      Estado: 'no-iniciado',
+      Tipo: 'puntaje'
     });
     setUpdateFlag(!updateFlag)
   };
@@ -59,7 +59,7 @@ function FromConcurso() {
     const { name, value } = event.target;
     setFormData((prevFormData) => ({
       ...prevFormData,
-      [name]: name === 'Activo' ? (value === 'activo' ? 1 : 0) : value
+      [name]: value
     }));
   };
 
@@ -92,24 +92,37 @@ function FromConcurso() {
         <label>
           <input
             type="radio"
-            name="Activo"
-            value="activo"
-            checked={formData.Activo === 1}
+            name="Estado"
+            value="no-iniciado"
+            checked={formData.Estado === 'no-iniciado'}
             onChange={handleInputChange}
           />
-          Activo
+          No iniciado
         </label>
 
         <label>
           <input
             type="radio"
-            name="Activo"
-            value="finalizado"
-            checked={formData.Activo === 0}
+            name="Estado"
+            value="iniciado"
+            checked={formData.Estado === 'iniciado'}
             onChange={handleInputChange}
           />
-          Finalizado
+          Iniciado
         </label>
+
+        {formData.Id && (
+          <label>
+            <input
+              type="radio"
+              name="Estado"
+              value="finalizado"
+              checked={formData.Estado === 'finalizado'}
+              onChange={handleInputChange}
+            />
+            Finalizado
+          </label>
+        )}
 
         <button type="submit">{formData.Id ? 'Editar' : 'Crear'}</button>
       </form>
@@ -123,9 +136,9 @@ function FromConcurso() {
           updateFlag={updateFlag}
           />}
         />
-        </Routes>
-      </div>
-);
+      </Routes>
+    </div>
+  );
 }
 
 export default FromConcurso;

@@ -20,6 +20,7 @@ const QRscanner = () => {
   useEffect(() => {
     if (result !== "") {
       setLoading(true);
+      
     } else {
       setLoading(false);
     }

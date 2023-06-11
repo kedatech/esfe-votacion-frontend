@@ -21,7 +21,8 @@ function Form() {
     const result = await authEstudiante(formData);
     if(!result.error){
 
-      localStorage.setItem("authEstudianteResult",JSON.stringify(result.token))
+      localStorage.setItem("authEstudianteResult",JSON.stringify(result))
+      localStorage.setItem("codigoEstudiante",JSON.stringify(formData.Codigo))
       window.location.assign("/home")
     }
   };

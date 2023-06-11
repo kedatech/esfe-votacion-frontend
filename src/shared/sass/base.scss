@@ -18,3 +18,29 @@ $green:#32cb60;
 .display-none{
   display: none;
 }
+
+button{
+  background: $light;
+  color: #fff;
+  padding: 1em .5em;
+  font-size: 1.3rem;
+  border:none;
+  border-radius: 5px;
+}
+
+#html5qr-code-full-region__scan_region{
+  img{
+    width: 100%;
+    max-width: 200px;
+  }
+}
+
+@media (width > 500px){
+  #html5qr-code-full-region__scan_region{
+    img{
+      width: 100%;
+      max-width: 400px;
+    }
+  }
+  
+}

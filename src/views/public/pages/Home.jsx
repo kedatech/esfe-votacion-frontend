@@ -4,7 +4,7 @@ import Form from "../components/Form"
 
 function Home() {
   const authResult = JSON.parse(localStorage.getItem('authEstudianteResult'));
-  const [validate, setValidate] = useState(true);
+  const [validate, setValidate] = useState(false);
   // const [loading, setLoading] = useState(true);
   useEffect(() => {
     
@@ -12,7 +12,7 @@ function Home() {
       setValidate(true)
     }
     
-  }, [])
+  }, [authResult])
   
   return (
     <div>

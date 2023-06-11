@@ -83,6 +83,12 @@ const QRscanner = () => {
       <p>
         <span>Lista de Resultados:</span>
         <span>{result}</span>
+        <button onClick={()=> setResult("p2")}>
+                bueno
+        </button>
+        <button onClick={()=> setResult("lalal")}>
+                malo
+        </button>
       </p>
     </div>
   );

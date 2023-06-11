@@ -1,11 +1,13 @@
 import { useState } from 'react';
 import { authEstudiante } from '../../../shared/utils/api/auth';
+import useError from '../../../shared/helpers/useError'
 import Swal from 'sweetalert2'
 import withReactContent from 'sweetalert2-react-content'
 
 
 function Form() {
   const MySwal = withReactContent(Swal)
+  const [error, setError] = useError("")
   const [formData, setFormData] = useState({
     Codigo: '',
     IdCarrera: '',
@@ -22,12 +24,8 @@ function Form() {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    if(formData.IdAnio === '' || formData.IdCarrera === ''){
-      MySwal.fire({
-        icon: 'error',
-        title: 'Error...',
-        text: 'Todos los campos son necesarios!'
-      })
+    if(formData.IdAnio === '' || formData.IdCarrera === '' || formData.Codigo === ''){
+      setError("Campos vacios")
       return
     }
     const result = await authEstudiante(formData);
@@ -36,8 +34,16 @@ function Form() {
       localStorage.setItem("authEstudianteResult",JSON.stringify(result))
       localStorage.setItem("codigoEstudiante",JSON.stringify(formData.Codigo))
       window.location.assign("/home")
+    }else{
+      setError("Estudiante no encontrado")
     }
   };
+  if(error !== ""){
+    MySwal.fire({
+      icon: 'error',
+      title: error
+    })
+  }
 
   return (
     <form className='user-form' onSubmit={handleSubmit}>

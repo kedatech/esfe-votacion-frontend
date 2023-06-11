@@ -20,7 +20,7 @@ export async function votar(Body) {
     return await response.json();
   } catch (error) {
     console.error('Error al crear el elemento:', error);
-    throw error;
+    return {error}
   }
 }
 

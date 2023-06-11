@@ -2,7 +2,7 @@
 @import url('https://fonts.googleapis.com/css?family=Hind:300,400&display=swap');
 
 .Scanner-Video-Render{
-  border-radius: 18px;
+  border-radius: 10px;
   justify-content: center; 
 }
 @media (max-width: 768px) {
@@ -37,5 +37,21 @@
   &:hover {
     background-color: $light;
     transform: scale(1.01);
+  }
+}
+
+
+.error{
+  width: 60%;
+  max-width: 500px;
+  margin: 0 auto;
+
+  img{
+    width: 100%;
+    opacity: .9;
+  }
+  h2{
+    font-size: 1.5rem;
+    color: #cf4b4b;
   }
 }

@@ -1,10 +1,15 @@
 @import "../base.scss";
-
+.container-user-form{
+  display:grid;
+  place-items: center;
+  font-size: 1.3rem;
+  height: 70vh;
+}
 .user-form{
   display: flex;
   flex-direction: column;
-  font-size: 1.3rem;
   max-width: 350px;
+
 
   h1{
     font-size: 1.5rem;

@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import Loading from '../../../shared/utils/components/Loading'
+import Spinner from '../../../shared/utils/components/Spinner'
 import _QRscanner from './_QRscanner'
 import { votar } from '../../../shared/utils/api/votar'
 import useError from '../../../shared/helpers/useError'
@@ -32,7 +32,7 @@ const Votar = () => {
   return (
     <div className="voto-container">
       {loading 
-      ? <Loading />
+      ? <Spinner />
       : error !== ""?(
         <div className="error">
           <h2>{error}</h2>

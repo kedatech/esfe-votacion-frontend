@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react"
-import QRscanner from "../components/QRscanner"
+import Votar from "../components/Votar"
 import Form from "../components/Form"
 
 function Home() {
@@ -18,7 +18,7 @@ function Home() {
     <div>
       {
         validate
-        ?<QRscanner/>
+        ?<Votar/>
         :<Form />
       }
     </div>

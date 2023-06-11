@@ -3,24 +3,29 @@
 
 .Scanner-Video-Render{
   border-radius: 10px;
-  justify-content: center; 
+  border: $light 1px solid;
 }
 @media (max-width: 768px) {
     .Scanner-Video-Render {
+        margin: 0 auto;
        width: 90%;
+
     }
   }
-  .scanner-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center; 
-    justify-content: center; 
+
+  .voto-container {
+    div{
+      width: 100%;
+      display: grid;
+      place-items: center;
+    }
   }
   .video-container {
     display: flex;
     justify-content: center; 
     align-items: center;
     width: 90%; 
+    
 }
   .button-cancel-camera{
     margin: 5px;

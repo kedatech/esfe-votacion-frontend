@@ -36,7 +36,7 @@ function FormCodigo({handleSubmit}) {
             value={codigo}
             onChange={(e)=> setCodigo(e.target.value)}
           />
-        <label htmlFor="codigo">Codigo de participante</label>
+        <label htmlFor="codigo">Código de participante</label>
       </div>
 
       <button className='submit-code' onClick={()=> click()}>Votar</button>

@@ -1,0 +1,41 @@
+@import "../base.scss";
+
+.informacion{
+  max-width: 600px;
+  margin: 0 auto;
+
+  h1{
+    color:$light;
+    opacity: .7;
+  }
+  h3{
+    opacity: .7;
+  }
+
+  a{
+    color: $dark;
+    font-weight: 700;
+
+  }
+  img{
+    width: 100%;
+    margin: 0 auto;
+  }
+  p{
+    line-height: 1.4rem;
+  }
+  a.link-a{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+
+    svg{
+      margin-right: 1rem;
+      color: #333;
+    }
+    p{
+      margin: 0 0 5px 0;
+      color: #333;
+    }
+  }
+}

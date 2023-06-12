@@ -3,8 +3,8 @@ import {Link, NavLink} from "react-router-dom"
 import Menu from "./_Menu"
 import logo from '/logo-esfe.png'
 
-import { ImStatsDots, ImTrophy } from "react-icons/im";
-import { FaBookOpen} from "react-icons/fa";
+import { ImStatsDots, ImTrophy} from "react-icons/im";
+import { FaBookOpen, FaQrcode} from "react-icons/fa";
 
 const NavBar = () => {
   
@@ -25,6 +25,14 @@ const NavBar = () => {
           <img src={logo} />
           <p>Concurso Aniversario</p>
         </div>
+
+        <NavLink 
+          className={({isActive})=>(isActive?"navlink-active":null)} 
+          to={"/home"}
+          onClick={handleClick}
+        > 
+          <FaQrcode/>  Inicio  
+        </NavLink>
         
         <NavLink 
           className={({isActive})=>(isActive?"navlink-active":null)} 
@@ -44,7 +52,7 @@ const NavBar = () => {
 
         <NavLink 
           className={({isActive})=>(isActive?"navlink-active":null)} 
-          to={"/que-es"}
+          to={"/informacion"}
           onClick={handleClick}
         > 
          <FaBookOpen/> Información   

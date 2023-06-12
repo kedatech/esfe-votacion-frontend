@@ -1,6 +1,6 @@
 import {Navigate, Route, Routes} from 'react-router-dom'
 import NavBar from './components/NavBar'
-import {Home, Concursos, Categorias} from './pages/index'
+import {Home, Concursos, Categorias, Informacion} from './pages/index'
 function Public() {
   
   return (
@@ -9,11 +9,12 @@ function Public() {
       <NavBar />
       <div className='contenedor-main'>
         <Routes>
-          <Route index element={<Navigate to="home" />}/>
-          <Route path='home' element={<Home />}/>
-          <Route path='concursos' element={<Concursos />}/>
-          <Route path='concursos/categorias/:id' element={<Categorias />}/>
-          <Route path='admin/categorias/:id' element={<Categorias />}/>
+          <Route index element={<Navigate to="/home" />}/>
+          <Route path='/home' element={<Home />}/>
+          <Route path='/concursos' element={<Concursos />}/>
+          <Route path='/informacion' element={<Informacion />}/>
+          <Route path='/concursos/categorias/:id' element={<Categorias />}/>
+          <Route path='/admin/categorias/:id' element={<Categorias />}/>
         </Routes>
       </div>
     </div>

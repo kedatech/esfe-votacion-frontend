@@ -27,7 +27,7 @@ function Concursos({ handleDelete = null, handleEdit = null, updateFlag }) {
           <Link className='card-concurso' to={`categorias/${el.Id}`}>
             <h2>{el.Nombre}</h2>
 
-            <img src="/icons/baile-icon.png" alt="" />
+            <img src={`/icons/${el.Img}-icon.png`} alt="" />
 
             <div>
               <p>{el.Descripcion}</p>

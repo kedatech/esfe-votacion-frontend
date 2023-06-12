@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 const Accordion = ({item, expandedItem, toggleAccordion}) => {
 
 
+  item.Participantes.sort((a, b) => b.ConteoVotos - a.ConteoVotos);
   return (
     
     <div className="accordion-item">
@@ -17,8 +18,10 @@ const Accordion = ({item, expandedItem, toggleAccordion}) => {
       {expandedItem === item.Id && (
         <div className="accordion-content">
           {item.Participantes.map(el=>(
-            <div key={el.Id}>
-              <b>{el.Nombre}</b>
+            <div className='element' key={el.Id}>
+              <div className='nombre-participante'>
+                <b>{el.Nombre}</b>
+              </div>
               <p> {el.Puntaje
                 ? `Puntaje: ${el.Puntaje}`
                 : `Votos: ${el.ConteoVotos}`}

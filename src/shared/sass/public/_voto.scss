@@ -16,3 +16,26 @@
     font-weight: 600;
   }
 }
+
+h3{
+  color: $dark;
+}
+.form-input-material{
+  width: 100%;
+  input.form-control-material{
+
+    line-height: 2rem;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: $light;
+  }
+  label{
+    font-size: 1.5rem;
+  }
+}
+
+.submit-code{
+  margin: 1em auto 0;
+  width: 150px;
+  font-size: 1,2rem;
+}

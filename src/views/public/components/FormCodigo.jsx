@@ -23,6 +23,7 @@ function FormCodigo({handleSubmit}) {
   return (
     <div>
       <h3>Puedes votar también escribiendo el codigo del participante!!</h3>
+      <br />
       <div className='form-input-material'>
         <input
             type="text"
@@ -38,7 +39,7 @@ function FormCodigo({handleSubmit}) {
         <label htmlFor="codigo">Codigo de participante</label>
       </div>
 
-      <button onClick={()=> click()}>Votar</button>
+      <button className='submit-code' onClick={()=> click()}>Votar</button>
     </div>
   )
 }

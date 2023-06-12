@@ -37,11 +37,15 @@ const Html5QrcodePlugin = (props) => {
         const html5QrcodeScanner = new Html5QrcodeScanner(qrcodeRegionId, config, verbose);
         html5QrcodeScanner.render(props.qrCodeSuccessCallback, props.qrCodeErrorCallback);
 
+        const btns = ["html5-qrcode-button-camera-stop","html5-qrcode-button-camera-permission"]
+        const values = ["DETENER","INICIAR"]
     
+        btns.forEach((btn,i)=>{
+            if(document.getElementById(btn)){
+                document.getElementById(btn).innerText = values[i]
+            }
+        })
         // cleanup function when component will unmount
-        if(document.getElementById("html5-qrcode-button-camera-permission")){
-            document.getElementById("html5-qrcode-button-camera-permission").innerText = "INICIAR"
-        }
         return () => {
             html5QrcodeScanner.clear().catch(error => {
                 console.error("Failed to clear html5QrcodeScanner. ", error);

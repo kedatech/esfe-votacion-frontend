@@ -1,0 +1,18 @@
+@use './_QRscanner';
+@import "../base.scss";
+
+.select-mode{
+  display: grid;
+  grid-template-columns: repeat(2,1fr);
+  place-content: center;
+  margin-bottom: 1em;
+  
+  button{
+    outline: 2px solid $dark;
+    margin: 0;
+    border-radius: 0;
+    background-color: #85a9ff;
+    color: $dark;
+    font-weight: 600;
+  }
+}

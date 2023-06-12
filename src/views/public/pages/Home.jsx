@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
 import Votar from "../components/Votar"
-import Form from "../components/Form"
+import LoginEstudiante from "../components/LoginEstudiante"
 
 function Home() {
   const authResult = JSON.parse(localStorage.getItem('authEstudianteResult'));
@@ -19,7 +19,7 @@ function Home() {
       {
         validate
         ?<Votar/>
-        :<Form />
+        :<LoginEstudiante />
       }
     </div>
   )

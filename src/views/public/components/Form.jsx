@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { authEstudiante } from '../../../shared/utils/api/auth';
-import useError from '../../../shared/helpers/useError'
+import useEvent from '../../../shared/helpers/useEvent'
 import Swal from 'sweetalert2'
 import withReactContent from 'sweetalert2-react-content'
 import Loading from '../../../shared/utils/components/Loading'
@@ -8,7 +8,7 @@ import Loading from '../../../shared/utils/components/Loading'
 
 function Form() {
   const MySwal = withReactContent(Swal)
-  const [error, setError] = useError("")
+  const [error, setError] = useEvent("")
   const [loading, setLoading] = useState(false)
   const [formData, setFormData] = useState({
     Codigo: '',

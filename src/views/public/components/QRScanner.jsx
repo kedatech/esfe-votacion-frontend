@@ -39,7 +39,7 @@ const Html5QrcodePlugin = (props) => {
 
     
         // cleanup function when component will unmount
-        if(document.getElementById("html5-qrcode-button-camera-permission").innerText !== null){
+        if(document.getElementById("html5-qrcode-button-camera-permission")){
             document.getElementById("html5-qrcode-button-camera-permission").innerText = "INICIAR"
         }
         return () => {

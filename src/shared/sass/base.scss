@@ -27,20 +27,3 @@ button{
   border:none;
   border-radius: 5px;
 }
-
-#html5qr-code-full-region__scan_region{
-  img{
-    width: 100%;
-    max-width: 200px;
-  }
-}
-
-@media (width > 500px){
-  #html5qr-code-full-region__scan_region{
-    img{
-      width: 100%;
-      max-width: 400px;
-    }
-  }
-  
-}

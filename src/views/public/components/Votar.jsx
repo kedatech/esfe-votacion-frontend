@@ -1,22 +1,23 @@
 import { useState, useEffect } from "react";
-import Spinner from '../../../shared/utils/components/Spinner'
-import { votar } from '../../../shared/utils/api/votar'
-import useError from '../../../shared/helpers/useError'
-import Html5QrcodePlugin from './QRScanner';
+import Spinner from "../../../shared/utils/components/Spinner";
+import { votar } from "../../../shared/utils/api/votar";
+import useEvent from "../../../shared/helpers/useEvent";
+import Html5QrcodePlugin from "./QRScanner";
 
 const Votar = () => {
   const [result, setResult] = useState("");
   const [loading, setLoading] = useState(false);
-  const [error, setError] = useError(3);
+  const [error, setError] = useEvent(3);
+  const [success, setSuccess] = useEvent(3);
 
   useEffect(() => {
     const votaApi = async () => {
       setLoading(true);
       try {
-        const result2 = result; // Asigna el valor de 'result' a 'result2' aquí
-        const response = await votar({ CodigoParticipante: result2 });
-        console.log(response)
+        const response = await votar({ CodigoParticipante: result });
+
         if (response.error) setError(response.error);
+        else setSuccess("Voto agregado exitosamente");
       } catch (error) {
         setError("Error al realizar la votación");
       }
@@ -32,45 +33,39 @@ const Votar = () => {
     setResult(qrCodeResult);
   };
 
-
   return (
     <div className="voto-container">
-      {loading 
-      ? <Spinner />
-      : error !== "" ? (
-        <div className="error">
+      {loading ? (
+        <Spinner />
+      ) : error !== "" ? (
+        <div className="msg-resul error">
           <h2>{error}</h2>
           <img src="/icons/cerca.png" alt="icon-error" />
         </div>
+      ) : success ? (
+        <div className="msg-resul success">
+          <h2>{success}</h2>
+          <img src="/icons/cheque.png" alt="icon-error" />
+        </div>
       ) : null}
 
-      
-      <div className={loading || error ? "display-none" : null}>
-        <Html5QrcodePlugin
-          fps={10}
-          qrbox={250}
-          disableFlip={false}
-          qrCodeSuccessCallback={onNewScanResult}
-        />
-      </div>
-        
-      
-      
+      {!loading && !error && !success && (
+        <div className="qr-container">
+          <Html5QrcodePlugin
+            fps={30}
+            qrbox={200}
+            disableFlip={false}
+            qrCodeSuccessCallback={onNewScanResult}
+          />
+        </div>
+      )}
 
-      <div>
-        {/* for testing */}
+      {/* <div>     
         <span>Lista de Resultados:</span>
         <span>{result}</span>
-        <button onClick={()=> setResult("p2")}>
-                bueno
-        </button>
-        <button onClick={()=> setResult("lalal")}>
-                malo
-        </button>
-
-        <h1>{error}</h1>
-        <h2>{error!==""}</h2>
-      </div>
+        <button onClick={() => setResult("p1")}>bueno</button>
+        <button onClick={() => setResult("lalal")}>malo</button>
+      </div> */}
     </div>
   );
 };

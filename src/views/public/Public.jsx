@@ -1,6 +1,8 @@
 import {Navigate, Route, Routes} from 'react-router-dom'
 import NavBar from './components/NavBar'
 import {Home, Concursos, Categorias, Informacion} from './pages/index'
+import NotFount from './pages/NotFount'
+
 function Public() {
   
   return (
@@ -15,6 +17,7 @@ function Public() {
           <Route path='/informacion' element={<Informacion />}/>
           <Route path='/concursos/categorias/:id' element={<Categorias />}/>
           <Route path='/admin/categorias/:id' element={<Categorias />}/>
+          <Route path='*' element={<NotFount />}/>
         </Routes>
       </div>
     </div>

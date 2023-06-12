@@ -26,6 +26,14 @@ function Form() {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
+    const { Codigo } = formData
+    const regex = /^[a-zA-Z]{2}(20|21|22|23)\d{3}$/;
+
+    if (!regex.test(Codigo)) {
+      
+      setError(`${Codigo} no es un codigo valido`)
+      return;
+    }
     if(formData.IdAnio === '' || formData.IdCarrera === '' || formData.Codigo === ''){
       setError("Campos vacios")
       return

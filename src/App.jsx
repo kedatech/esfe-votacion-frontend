@@ -10,6 +10,7 @@ function App() {
       <Routes>
         <Route path='/*' element={<Public />}/>
         <Route path='/admin/*' element={<Admin />}/>
+        
       </Routes>
     </>
   )

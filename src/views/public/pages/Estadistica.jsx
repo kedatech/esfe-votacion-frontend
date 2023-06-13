@@ -1,6 +1,40 @@
+import BarChart from "../components/BarChart"
+import { getAll } from '../../../shared/utils/api/concursos.js';
+import { useEffect, useState } from 'react';
+import ConcursoStats from "../components/ConcursoStats";
+// import { useParams } from 'react-router-dom'
+
 function Estadistica() {
+  const [concursos, setConcursos] = useState([]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const dataConcursos = await getAll();
+        setConcursos(dataConcursos);
+
+      } catch (error) {
+        console.error('Error al obtener los datos de concursos:', error);
+      }
+    };
+
+    fetchData();
+  }, []);
+
+
   return (
-    <div>Estadistica</div>
+    <div className="stats-concursos">
+        {
+          concursos.length === 0 
+          ? <center><h1>¡Ups! No hay ningún Concurso Activo</h1></center>
+          : concursos.map( el => (
+            <div key={el.Id}>
+            <center><h1>{el.Nombre}</h1></center>
+            <ConcursoStats Concurso={el}/>
+          </div>
+            ))
+        }
+    </div>
   )
 }
 export default Estadistica

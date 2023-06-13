@@ -1,0 +1,15 @@
+@import "../base.scss";
+@import url('https://fonts.googleapis.com/css?family=Hind:300,400&display=swap');
+
+.BarlineContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    justify-content: center; 
+  }
+.BarChart{
+  padding-top: 12px;
+  padding-bottom: 12px;
+    max-width: 800px;
+    max-height: 400px;
+}

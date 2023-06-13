@@ -25,7 +25,12 @@ function ConcursoStats({Concurso}) {
           categorias.length === 0 
           ?<center><h2 className='no-categories'>No hay categorías para mostrar</h2></center>
           : categorias?.map((el) => {
-            const lista = el.Participantes.map((p) => p.Nombre);
+            const lista = el.Participantes.map((p) => {
+              const arr = p.Nombre.split(" ");
+              const nombre = arr[0]
+              const apellido = arr[2]?arr[2]:""
+              return `${nombre} ${apellido}`
+            });
             const votos = el.Participantes.map((v) => v.ConteoVotos)
             return (
             <div key={el.Id}>

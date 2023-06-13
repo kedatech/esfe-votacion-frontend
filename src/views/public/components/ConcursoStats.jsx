@@ -1,7 +1,7 @@
 import { getById } from '../../../shared/utils/api/concursos.js';
 import { useEffect, useState } from 'react';
-import React from 'react'
 import BarChart from './BarChart.jsx';
+import PropTypes from 'prop-types';
 
 function ConcursoStats({Concurso}) {
   const [categorias, setCategorias] = useState([]);
@@ -38,5 +38,10 @@ function ConcursoStats({Concurso}) {
     </>
   )
 }
-
+ConcursoStats.propTypes = {
+  Concurso: PropTypes.shape({
+    Id: PropTypes.number.isRequired,
+    // Agrega aquí las otras propiedades necesarias y sus tipos
+  }).isRequired,
+};
 export default ConcursoStats

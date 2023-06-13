@@ -1,4 +1,3 @@
-import BarChart from "../components/BarChart"
 import { getAll } from '../../../shared/utils/api/concursos.js';
 import { useEffect, useState } from 'react';
 import ConcursoStats from "../components/ConcursoStats";

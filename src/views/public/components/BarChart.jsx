@@ -1,4 +1,5 @@
 import { Bar } from 'react-chartjs-2';
+import PropTypes from 'prop-types';
 import {
     Chart as ChartJS,
     CategoryScale,
@@ -69,3 +70,9 @@ export default function BarChart({
         </div>
     )
 }
+
+BarChart.propTypes = {
+    Categoria: PropTypes.string,
+    Votos: PropTypes.arrayOf(PropTypes.number),
+    participantes: PropTypes.arrayOf(PropTypes.string),
+  };

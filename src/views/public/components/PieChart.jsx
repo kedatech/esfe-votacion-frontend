@@ -1,6 +1,6 @@
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js';
 import { Pie } from 'react-chartjs-2';
-
+import PropTypes from 'prop-types';
 ChartJS.register(ArcElement, Tooltip, Legend);
 
 var options = {
@@ -40,3 +40,7 @@ export default function PieChart({Carreras, Votos}) {
         </div>
     );
 }
+PieChart.propTypes = {
+    Carreras: PropTypes.arrayOf(PropTypes.string),
+    Votos: PropTypes.arrayOf(PropTypes.number),
+  };

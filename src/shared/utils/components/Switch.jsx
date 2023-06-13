@@ -16,7 +16,7 @@ function Switch({setMode}) {
 
   return (
     <>
-      <label>
+      <label className="container-switch">
         <input type="checkbox" className="slider" checked={isChecked} onChange={handleToggle} />
         <div className={`switch ${isChecked ? "checked" : ""}`}>
           <div className="suns"></div>

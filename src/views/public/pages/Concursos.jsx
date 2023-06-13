@@ -1,13 +1,16 @@
 import { useEffect, useState } from 'react';
 import { getAll } from '../../../shared/utils/api/concursos.js';
+import Spinner from '../../../shared/utils/components/Spinner.jsx';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
 function Concursos({ handleDelete = null, handleEdit = null, updateFlag }) {
   const [concursos, setConcursos] = useState([]);
+  const [loading, setLoading] = useState(false)
 
   useEffect(() => {
     const fetchData = async () => {
+      setLoading(true)
       try {
         const data = await getAll();
         console.log(data);
@@ -15,6 +18,7 @@ function Concursos({ handleDelete = null, handleEdit = null, updateFlag }) {
       } catch (error) {
         console.error('Error al obtener los datos de concursos:', error);
       }
+      setLoading(false)
     };
 
     fetchData();
@@ -22,6 +26,7 @@ function Concursos({ handleDelete = null, handleEdit = null, updateFlag }) {
 
   return (
     <div className='concursos'>
+      {loading? <center><Spinner /></center>:null}
       {concursos?.map((el) => (
         <div key={el.Id}>
           <Link className='card-concurso' to={`categorias/${el.Id}`}>

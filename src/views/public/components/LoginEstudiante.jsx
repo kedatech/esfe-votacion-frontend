@@ -97,6 +97,7 @@
               <option value="1">TIDS</option>
               <option value="2">TIE</option>
               <option value="3">TM</option>
+              <option value="4">TGDT</option>
             </select>
           </div>
 

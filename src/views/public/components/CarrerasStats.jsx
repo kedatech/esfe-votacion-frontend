@@ -20,14 +20,13 @@ export default function CarrerasStats() {
 
   return (
     <>
-        {
-            carreras.length !== 0 ?
-            carreras?.map((el) => (
-                <PieChart Carreras={[el.Carrera+" "+el.TotalVotos.toString()+" votos"]} Votos={[el.TotalVotos]} />
-            ))
-            :<center><h2>El conteo de estadísticas Generales estará disponible cuando las carreras empiecen a votar.</h2></center>
-        }
+      {
+        carreras.length === 0 ?
+        null :
+        <div>
+          <PieChart Carreras={carreras.map(m => m.Carrera + " " + m.TotalVotos.toString() + " votos")} Votos={carreras.map(m => m.TotalVotos)} />
+        </div>
+      }
     </>
-
-  )
-}
+  );
+    }  

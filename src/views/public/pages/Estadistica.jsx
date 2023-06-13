@@ -1,7 +1,7 @@
 import { getAll } from '../../../shared/utils/api/concursos.js';
 import { useEffect, useState } from 'react';
 import ConcursoStats from "../components/ConcursoStats";
-// import { useParams } from 'react-router-dom'
+import CarrerasStats from '../components/CarrerasStats.jsx';
 
 function Estadistica() {
   const [concursos, setConcursos] = useState([]);
@@ -33,6 +33,9 @@ function Estadistica() {
           </div>
             ))
         }
+        <hr />
+        <center><h1>Votos Totales por Carrera</h1></center>
+      <CarrerasStats />
     </div>
   )
 }

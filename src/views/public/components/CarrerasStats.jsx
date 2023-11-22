@@ -22,7 +22,7 @@ export default function CarrerasStats() {
     <>
       {
         carreras.length === 0 ?
-        null :
+        <center><h2>Aun no hay estadísticas que mostrar</h2></center> :
         <div>
           <PieChart Carreras={carreras.map(m => m.Carrera + " " + m.TotalVotos.toString() + " votos")} Votos={carreras.map(m => m.TotalVotos)} />
         </div>

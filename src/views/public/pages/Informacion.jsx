@@ -3,7 +3,7 @@ import {ImGithub} from 'react-icons/im'
 function Informacion() {
   return (
     <div className='informacion'>
-      <h1>Bienvenido al 14° aniversario ESFE</h1>
+      <h1>Bienvenido al sitio de Votaciones ESFE</h1>
       <p>Aquí podrás votar por participantes en algunos de los concursos</p>
 
       <h2>¿Cómo votar?</h2>
@@ -17,13 +17,16 @@ function Informacion() {
         <img src="/images/tech.svg" alt="" />
       </div>
       <br />
-      <h2>Creador por</h2>
+      <br />
+      <h2>Creado por</h2>
       <a href="https://github.com/eliseodesign" className='link-a'>
         <ImGithub/> <p>Eliseo Arévalo Espinoza</p>
       </a>
       <a href="https://github.com/arev-dev" className='link-a'>
-        <ImGithub/> <p>Daniel Rodrigez Arévalo</p>
+        <ImGithub/> <p>Daniel Rodríguez Arévalo</p>
       </a>
+      <br />
+      <br />
 
     </div>
   )

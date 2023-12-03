@@ -4,6 +4,7 @@ const url = `${URL_API}/participante/voto`;
 
 export async function votar(Body) {
   try {
+    console.log("body", Body)
 
     const auth = JSON.parse(localStorage.getItem('authJuezToken'));
     const Codigo = JSON.parse(localStorage.getItem('codigoJuez'));
@@ -23,4 +24,9 @@ export async function votar(Body) {
     return {error}
   }
 }
-
+// ejemplo de body
+// {
+//   "CodigoJuez":"123456",
+//   "CodigoParticipante":"fuap",
+//   "Calificacion":4
+// }

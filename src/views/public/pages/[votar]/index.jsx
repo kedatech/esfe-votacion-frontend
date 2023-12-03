@@ -5,15 +5,21 @@ import { BuscarParticipante } from "../../components/BuscarParticipante"
 import { LoginJuez } from "../../components/LoginJuez"
 import { Puntuar } from "../../components/Puntuar"
 import { getByCodigo } from '../../../../shared/utils/api/participante'
+import useEvent from "../../../../shared/helpers/useEvent";
+
 
 export function VotarPage() {
   const {codigo} = useParams()
-  console.log(codigo)
+
   const authResult = JSON.parse(localStorage.getItem('authJuezToken'));
   const codigoJuez = JSON.parse(localStorage.getItem('codigoJuez'));
+
   const [validate, setValidate] = useState(false);
   const [participante, setParticipante] = useState(null);
-  console.log(participante)
+  const [error, setError] = useEvent(3);
+
+  console.log("err", error === "")
+
   useEffect(() => {
     
     if(authResult){
@@ -26,8 +32,8 @@ export function VotarPage() {
     const fetchData = async () => {
       try {
         const data = await getByCodigo(codigo, codigoJuez);
-        console.log("data",data)
-        setParticipante(data);
+        if(data.error) setError(data.error)
+        else setParticipante(data);
       } catch (error) {
         console.error('Error al obtener los datos de concursos:', error);
       }
@@ -40,9 +46,18 @@ export function VotarPage() {
   return (
     <div>
       {
+        error === ""  ?
         validate
-        ?participante? <Puntuar participante={participante}/> : <BuscarParticipante setParticipante={setParticipante}/>
-        :<LoginJuez setValidate={setValidate}/>
+        ?participante? <Puntuar codigoJuez={codigoJuez} participante={participante}/> : <BuscarParticipante setParticipante={setParticipante}/>
+        :<LoginJuez setValidate={setValidate}/> : null
+        
+      }
+
+      {
+        error !== "" && <div className="msg-resul error">
+        <h2>{error}</h2>
+        <img src="/icons/cerca.png" alt="icon-error" />
+      </div>
       }
     </div>
   )

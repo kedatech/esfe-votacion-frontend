@@ -28,32 +28,7 @@
     padding: 0;
     margin: 0;
   }
-  .msg-resul{
-    display: grid;
-    place-items: center;
-    width: 100%;
-    max-width: 400px;
-
-    &.error{
-      h2{
-        color: rgb(238, 60, 60);
-      }
-    }
-    &.success{
-      h2{
-        color: rgb(0, 223, 118);
-      }
-    }
-    h2{
-      font-size: 1.5rem;
-      text-align: center;
-
-    }
-
-    img{
-      width: 70%;
-    }
-  }
+  
   .qr-container{
     width: 100%;
     display: grid;
@@ -64,5 +39,32 @@
   .qr-scanner{
     width: 100%;
     border: none;
+  }
+}
+
+.msg-resul{
+  display: grid;
+  place-items: center;
+  width: 100%;
+  max-width: 400px;
+
+  &.error{
+    h2{
+      color: rgb(238, 60, 60);
+    }
+  }
+  &.success{
+    h2{
+      color: rgb(0, 223, 118);
+    }
+  }
+  h2{
+    font-size: 1.5rem;
+    text-align: center;
+
+  }
+
+  img{
+    width: 70%;
   }
 }

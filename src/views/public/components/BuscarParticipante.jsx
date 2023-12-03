@@ -6,6 +6,8 @@ import { getByCodigo } from "../../../shared/utils/api/participante";
 import useEvent from "../../../shared/helpers/useEvent";
 import Html5QrcodePlugin from "./QRScanner";
 import FormCodigo from "./FormCodigo";
+import Swal from 'sweetalert2'
+import withReactContent from 'sweetalert2-react-content'
 
 export const BuscarParticipante = ({setParticipante}) => {
   const [result, setResult] = useState("");
@@ -16,18 +18,20 @@ export const BuscarParticipante = ({setParticipante}) => {
   const [mode, setMode] = useState("qr")
 
   const codigoJuez = JSON.parse(localStorage.getItem('codigoJuez'));
-
+  const MySwal = withReactContent(Swal)
   useEffect(() => {
     const votaApi = async () => {
       setLoading(true);
       console.log(result)
       try {
         const response = await getByCodigo(result, codigoJuez);
+        console.log("puta", response)
         if (response.error) setError(response.error);
         else {
-          setSuccess("Voto agregado exitosamente");
+          setSuccess("Usuario encontrado");
           setParticipante(response)
         }
+        
       } catch (error) {
         setError("Error al realizar la votación");
       }

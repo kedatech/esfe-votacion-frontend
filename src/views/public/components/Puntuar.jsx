@@ -1,41 +1,72 @@
 import { useState } from 'react';
+import { votar } from '../../../shared/utils/api/votar'
+import useEvent from '../../../shared/helpers/useEvent'
 import "./puntuar.css";
 
-export const Puntuar = ({ participante }) => {
+export const Puntuar = ({ participante, codigoJuez }) => {
   const [puntuacion, setPuntuacion] = useState(0);
-  console.log(puntuacion)
+  const [error, setError] = useEvent(3)
+  const [success, setSuccess] = useEvent(3)
 
   const handlePuntuacionChange = (valor) => {
     setPuntuacion(valor);
   };
 
-  const handleClick = () => {
-    console.log("votar", puntuacion)
+  const handleClick = async () => {
+    const data = {
+      CodigoJuez: codigoJuez,
+      CodigoParticipante: participante.data.Codigo,
+      Calificacion: puntuacion
+    }
+    const result = await votar(data)
+    if(result.error) setError(result.eror)
+    else{
+      setSuccess("Nuevo Voto Agregado")
+    }
   }
 
   const count = [5, 4, 3, 2, 1];
 
   return (
     <>
-      <h1>Califica</h1>
-      <h2>{participante.Nombre}</h2>
-      <p>
-        {participante.preVoto && 
+
+      {
+        error !== "" ? (
+          <div className="msg-resul error">
+            <h2>{error}</h2>
+            <img src="/icons/cerca.png" alt="icon-error" />
+          </div>
+        ) : success ? (
+          <div className="msg-resul success">
+            <h2>{success}</h2>
+            <img src="/icons/cheque.png" alt="icon-error" />
+          </div>) : null
+      }
+      {
+        error == "" && success == "" &&
         <>
-        Ya voto por este proyecto, si da una nueva calificación sobreescrivira la anterior. Su calificación fue <b>{participante.preVoto}/5</b>
-        </>}
+          <h1>Califica a:</h1>
+          <h2>{participante.data.Nombre}</h2>
+          <p>
+            {participante.preVoto &&
+              <>
+                Ya votaste por este proyecto, si da una nueva calificación sobreescribira la anterior. Su calificación fue <b>{participante.preVoto}/5</b>
+              </>}
 
 
-      </p>
-      
+          </p>
 
-      <form className="form-puntuar">
 
-        {count.map((s, i) => (
-          <Star key={s} number={s} onPuntuacionChange={handlePuntuacionChange} />
-        ))}
-      </form>
-      <button onClick={handleClick}>Enviar puntuación</button>
+          <form className="form-puntuar">
+
+            {count.map((s, i) => (
+              <Star key={s} number={s} onPuntuacionChange={handlePuntuacionChange} />
+            ))}
+          </form>
+          <button onClick={handleClick}>Enviar puntuación</button>
+        </>
+      }
+
     </>
   );
 };

@@ -1,29 +1,38 @@
-import { getAll } from '../../../shared/utils/api/concursos.js';
-import { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import ConcursoStats from "../components/ConcursoStats";
 import CarrerasStats from '../components/CarrerasStats.jsx';
 import Spinner from '../../../shared/utils/components/Spinner.jsx';
+import { getAll } from '../../../shared/utils/api/concursos.js';
 
 function Estadistica() {
   const [concursos, setConcursos] = useState([]);
-  const [loading, setLoading] = useState(false)
+  const [loading, setLoading] = useState(false);
+
+  const fetchData = async () => {
+    if(concursos.length === 0){
+      console.log("first")
+      setLoading(true);
+    }
+    try {
+      const dataConcursos = await getAll();
+      setConcursos(dataConcursos);
+    } catch (error) {
+      console.error('Error al obtener los datos de concursos:', error);
+    }
+    setLoading(false);
+  };
 
   useEffect(() => {
-    const fetchData = async () => {
-      setLoading(true)
-      try {
-        const dataConcursos = await getAll();
-        setConcursos(dataConcursos);
+    fetchData(); // Cargar datos al montar el componente
 
-      } catch (error) {
-        console.error('Error al obtener los datos de concursos:', error);
-      }
-      setLoading(false)
-    };
+    const refreshInterval = setInterval(() => {
+      console.log("refresh")
+      fetchData(); // Llamar a fetchData cada 3 segundos
+    }, 3000);
 
-    fetchData();
-  }, []);
-
+    // Limpiar el intervalo al desmontar el componente
+    return () => clearInterval(refreshInterval);
+  }, []); // La dependencia vacía garantiza que solo se ejecute al montar y desmontar el componente
 
   return (
     <div className="stats-concursos">
@@ -36,7 +45,6 @@ function Estadistica() {
           <ConcursoStats Concurso={el} />
         </div>
       ))}
-      
 
       {/* Mostrar estadísticas de carreras solo si loading es false */}
       {!loading && (
@@ -49,4 +57,5 @@ function Estadistica() {
     </div>
   );
 }
-export default Estadistica
+
+export default Estadistica;

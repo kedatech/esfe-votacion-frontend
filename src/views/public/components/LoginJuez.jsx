@@ -12,8 +12,6 @@
     const [loading, setLoading] = useState(false)
     const [formData, setFormData] = useState({
       Codigo: '',
-      IdCarrera: '',
-      IdAnio: ''
     });
 
     const handleChange = (event) => {
@@ -55,11 +53,11 @@
       const result = await authEstudiante(formData);
       if(!result.error){
 
-        localStorage.setItem("authEstudianteResult",JSON.stringify(result))
-        localStorage.setItem("codigoEstudiante",JSON.stringify(formData.Codigo))
+        localStorage.setItem("authJuezToken",JSON.stringify(result))
+        localStorage.setItem("codigoJuez",JSON.stringify(formData.Codigo))
         window.location.assign("/home")
       }else{
-        setError("Estudiante no encontrado")
+        setError("Cuenta no encontrada")
       }
       setLoading(false)
     };
@@ -76,45 +74,14 @@
           loading
           ?<Loading />
           :<form className='user-form' onSubmit={handleSubmit}>
-          <h1>¿Eres estudiante?</h1>
+          <h1>¿Código de invitación?</h1>
           <input
             type="text"
             name="Codigo"
-            placeholder="Codigo de Estudiante"
+            placeholder="Codigo de invitación"
             value={formData.Codigo}
             onChange={handleChange}
           />
-
-          <div className='selection'>
-            <label htmlFor="IdCarrera">Selecciona Carrera:</label>
-            <select
-              id="IdCarrera"
-              name="IdCarrera"
-              value={formData.IdCarrera}
-              onChange={handleChange}
-            >
-              <option value="">Selecciona una opción</option>
-              <option value="1">TIDS</option>
-              <option value="2">TIE</option>
-              <option value="3">TM</option>
-              <option value="4">TGDT</option>
-            </select>
-          </div>
-
-          <div className="selection">
-            <label htmlFor="IdAnios">Selecciona Año:</label>
-            <select
-              id="IdAnios"
-              name="IdAnio"
-              value={formData.IdAnio}
-              onChange={handleChange}
-            >
-              <option value="">Selecciona una opción</option>
-              <option value="1">1° año</option>
-              <option value="2">2° año</option>
-              <option value="3">4° año</option>
-            </select>
-          </div>
 
 
 

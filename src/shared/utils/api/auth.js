@@ -22,7 +22,7 @@ export async function authAdmin(body) {
 
 export async function authEstudiante(body) {
   try {
-    const response = await fetch(`${url}/estudiante`, {
+    const response = await fetch(`${url}/juez`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

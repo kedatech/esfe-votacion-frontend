@@ -5,8 +5,8 @@ const url = `${URL_API}/participante/voto`;
 export async function votar(Body) {
   try {
 
-    const auth = JSON.parse(localStorage.getItem('authEstudianteResult'));
-    const Codigo = JSON.parse(localStorage.getItem('codigoEstudiante'));
+    const auth = JSON.parse(localStorage.getItem('authJuezToken'));
+    const Codigo = JSON.parse(localStorage.getItem('codigoJuez'));
     console.log({auth})
     const response = await fetch(url, {
       method: 'POST',

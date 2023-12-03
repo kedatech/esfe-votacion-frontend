@@ -15,12 +15,14 @@ export const BuscarParticipante = ({setParticipante}) => {
 
   const [mode, setMode] = useState("qr")
 
+  const codigoJuez = JSON.parse(localStorage.getItem('codigoJuez'));
+
   useEffect(() => {
     const votaApi = async () => {
       setLoading(true);
       console.log(result)
       try {
-        const response = await getByCodigo(result);
+        const response = await getByCodigo(result, codigoJuez);
         if (response.error) setError(response.error);
         else {
           setSuccess("Voto agregado exitosamente");
@@ -38,7 +40,10 @@ export const BuscarParticipante = ({setParticipante}) => {
   }, [result]);
 
   const onNewScanResult = (qrCodeResult) => {
-    setResult(qrCodeResult);
+    const match = url.match(/\/([^\/]+)\/?$/);
+    const codigo = qrCodeResult ? match[1] : null;
+    console.log(codigo)
+    setResult(codigo);
   };
 
   return (

@@ -18,7 +18,7 @@ const NavBar = () => {
     <>
     <div onClick={handleClick} className={`back-modal ${menu?"active":""}`}></div>
     <nav className="navbar">
-      <Link to={"/home"} className="title">ESFE/Agapé</Link>
+      <Link to={"/"} className="title">ESFE</Link>
 
       <div className={`nav-list ${menu?"active":""}`} >
         <div to={"/home"} className="logo">
@@ -28,7 +28,7 @@ const NavBar = () => {
 
         <NavLink 
           className={({isActive})=>(isActive?"navlink-active":null)} 
-          to={"/home"}
+          to={"/"}
           onClick={handleClick}
         > 
           <FaQrcode/>  Inicio  

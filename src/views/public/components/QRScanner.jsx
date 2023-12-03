@@ -38,7 +38,7 @@ const Html5QrcodePlugin = (props) => {
         html5QrcodeScanner.render(props.qrCodeSuccessCallback, props.qrCodeErrorCallback);
 
         const btns = ["html5-qrcode-button-camera-stop","html5-qrcode-button-camera-permission"]
-        const values = ["DETENER","INICIAR"]
+        const values = ["DETENER","ESANEAR"]
     
         btns.forEach((btn,i)=>{
             if(document.getElementById(btn)){

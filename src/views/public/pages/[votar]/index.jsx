@@ -10,7 +10,7 @@ export function VotarPage() {
   const {codigo} = useParams()
   console.log(codigo)
   const authResult = JSON.parse(localStorage.getItem('authJuezToken'));
-  console.log("authResult",authResult);
+  const codigoJuez = JSON.parse(localStorage.getItem('codigoJuez'));
   const [validate, setValidate] = useState(false);
   const [participante, setParticipante] = useState(null);
   console.log(participante)
@@ -25,8 +25,8 @@ export function VotarPage() {
   useEffect(()=> {
     const fetchData = async () => {
       try {
-        const data = await getByCodigo(codigo);
-        console.log(data)
+        const data = await getByCodigo(codigo, codigoJuez);
+        console.log("data",data)
         setParticipante(data);
       } catch (error) {
         console.error('Error al obtener los datos de concursos:', error);

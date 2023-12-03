@@ -2,9 +2,9 @@ import { URL_API } from './config';
 
 const url = `${URL_API}/participante`;
 
-export async function getByCodigo(codigo) {
+export async function getByCodigo(codigoParticipante, codigoJuez) {
   try {
-    const response = await fetch(`${url}/${codigo}`);
+    const response = await fetch(`${url}/${codigoParticipante}/${codigoJuez}`);
 
     const data = await response.json();
     return data

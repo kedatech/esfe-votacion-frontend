@@ -8,7 +8,7 @@ function FormCodigo({ handleSubmit }) {
   const [codigo, setCodigo] = useState("")
 
   const handleChange = (event) => {
-    const codigo = event.target.value.toUpperCase();
+    const codigo = event.target.value.toLowerCase();
     setCodigo(codigo);
   }
 
@@ -42,7 +42,7 @@ function FormCodigo({ handleSubmit }) {
         <label htmlFor="codigo">Código de participante</label>
       </div>
 
-      <button className='submit-code' onClick={handleClick}>Votar</button>
+      <button className='submit-code' onClick={handleClick}>Buscar</button>
     </div>
   )
 }

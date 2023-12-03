@@ -2,11 +2,12 @@ import { useState, useEffect } from "react";
 import Spinner from "../../../shared/utils/components/Spinner";
 import Switch from "../../../shared/utils/components/Switch";
 import { votar } from "../../../shared/utils/api/votar";
+import { getByCodigo } from "../../../shared/utils/api/participante";
 import useEvent from "../../../shared/helpers/useEvent";
 import Html5QrcodePlugin from "./QRScanner";
 import FormCodigo from "./FormCodigo";
 
-const Votar = () => {
+export const BuscarParticipante = ({setParticipante}) => {
   const [result, setResult] = useState("");
   const [loading, setLoading] = useState(false);
   const [error, setError] = useEvent(3);
@@ -19,10 +20,12 @@ const Votar = () => {
       setLoading(true);
       console.log(result)
       try {
-        const response = await votar({ CodigoParticipante: result });
-
+        const response = await getByCodigo(result);
         if (response.error) setError(response.error);
-        else setSuccess("Voto agregado exitosamente");
+        else {
+          setSuccess("Voto agregado exitosamente");
+          setParticipante(response)
+        }
       } catch (error) {
         setError("Error al realizar la votación");
       }
@@ -40,11 +43,8 @@ const Votar = () => {
 
   return (
     <div className="voto-container">
-      <h1>Votación</h1>
-      {/* <div className="select-mode">
-        <button className="btn-mode" onClick={()=> setMode("qr")}>Escanear QR </button>
-        <button className="btn-mode" onClick={()=> setMode("code")}>Digita Codigo </button>
-      </div> */}
+      <h1>Buscar proyecto</h1>
+      
       <Switch setMode={setMode}/>
       {loading ? (
         <Spinner />
@@ -85,5 +85,3 @@ const Votar = () => {
     </div>
   );
 };
-
-export default Votar;

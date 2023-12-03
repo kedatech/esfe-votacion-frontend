@@ -6,7 +6,7 @@
   import Loading from '../../../shared/utils/components/Loading'
 
 
-  function Form() {
+  export function LoginJuez({setValidate}) {
     const MySwal = withReactContent(Swal)
     const [error, setError] = useEvent("")
     const [loading, setLoading] = useState(false)
@@ -20,7 +20,7 @@
       // Verificar si el campo de entrada es "Codigo"
       if (name === 'Codigo') {
         // Convertir el valor a mayúsculas
-        const codigo = value.toUpperCase();
+        const codigo = value.toLowerCase();
     
         setFormData((prevFormData) => ({
           ...prevFormData,
@@ -45,17 +45,14 @@
         setError(`${Codigo} no es un codigo valido`)
         return;
       }
-      if(formData.IdAnio === '' || formData.IdCarrera === '' || formData.Codigo === ''){
-        setError("Campos vacios")
-        return
-      }
+     
       setLoading(true)
       const result = await authEstudiante(formData);
       if(!result.error){
 
         localStorage.setItem("authJuezToken",JSON.stringify(result))
         localStorage.setItem("codigoJuez",JSON.stringify(formData.Codigo))
-        window.location.assign("/home")
+        setValidate(true)
       }else{
         setError("Cuenta no encontrada")
       }
@@ -93,5 +90,3 @@
       </div>
     );
   }
-
-  export default Form;

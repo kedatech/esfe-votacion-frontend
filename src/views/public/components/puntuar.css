@@ -1,0 +1,43 @@
+.form-puntuar {
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: row-reverse;
+	margin: 0 auto;
+    position: relative;
+    max-width: 400px;
+}
+
+.form-puntuar p {
+	text-align: center;
+}
+
+.form-puntuar label {
+	font-size: 40px;
+}
+
+input[type="radio"] {
+	display: none;
+}
+
+label:hover,
+label:hover ~ label {
+	color: rgb(255, 195, 83);
+}
+
+input[type="radio"]:checked ~ label {
+	color: orange;
+}
+
+input[type="radio"]:checked ~ label svg path {
+    fill: orange;
+}
+input[type="radio"] {
+    cursor: pointer;
+}
+input[type="radio"] label svg {
+    width: 100%;
+    height: 100%;
+}
+

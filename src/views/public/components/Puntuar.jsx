@@ -2,17 +2,21 @@ import { useState } from 'react';
 import { votar } from '../../../shared/utils/api/votar'
 import useEvent from '../../../shared/helpers/useEvent'
 import "./puntuar.css";
+import { Link } from 'react-router-dom'
 
-export const Puntuar = ({ participante, codigoJuez }) => {
+export const Puntuar = ({ participante, setParticipante,  codigoJuez }) => {
   const [puntuacion, setPuntuacion] = useState(0);
-  const [error, setError] = useEvent(3)
-  const [success, setSuccess] = useEvent(3)
+  const [error, setError] = useEvent(2)
+  const [success, setSuccess] = useEvent(2)
 
+  console.log("pa", participante)
   const handlePuntuacionChange = (valor) => {
     setPuntuacion(valor);
   };
 
+
   const handleClick = async () => {
+    puntuacion == 0 && setError("Debe elegir una calificación")
     const data = {
       CodigoJuez: codigoJuez,
       CodigoParticipante: participante.data.Codigo,
@@ -21,7 +25,8 @@ export const Puntuar = ({ participante, codigoJuez }) => {
     const result = await votar(data)
     if(result.error) setError(result.eror)
     else{
-      setSuccess("Nuevo Voto Agregado")
+      setSuccess(result.success)
+      setParticipante({...participante, preVoto: result.Calificacion})
     }
   }
 
@@ -45,10 +50,11 @@ export const Puntuar = ({ participante, codigoJuez }) => {
       {
         error == "" && success == "" &&
         <>
+          <div className='btn-back' onClick={()=> setParticipante(null)}>Regresar</div>
           <h1>Califica a:</h1>
           <h2>{participante.data.Nombre}</h2>
           <p>
-            {participante.preVoto &&
+            {participante.preVoto > 0 &&
               <>
                 Ya votaste por este proyecto, si da una nueva calificación sobreescribira la anterior. Su calificación fue <b>{participante.preVoto}/5</b>
               </>}

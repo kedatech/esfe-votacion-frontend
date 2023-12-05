@@ -22,10 +22,8 @@ export const BuscarParticipante = ({setParticipante}) => {
   useEffect(() => {
     const votaApi = async () => {
       setLoading(true);
-      console.log(result)
       try {
         const response = await getByCodigo(result, codigoJuez);
-        console.log("puta", response)
         if (response.error) setError(response.error);
         else {
           setSuccess("Usuario encontrado");
@@ -46,7 +44,6 @@ export const BuscarParticipante = ({setParticipante}) => {
   const onNewScanResult = (qrCodeResult) => {
     const match = url.match(/\/([^\/]+)\/?$/);
     const codigo = qrCodeResult ? match[1] : null;
-    console.log(codigo)
     setResult(codigo);
   };
 

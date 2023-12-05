@@ -4,7 +4,7 @@ const url = `${URL_API}/participante/voto`;
 
 export async function votar(Body) {
   try {
-    console.log("body", Body)
+    console.log("votar-response", Body)
 
     const auth = JSON.parse(localStorage.getItem('authJuezToken'));
     const Codigo = JSON.parse(localStorage.getItem('codigoJuez'));

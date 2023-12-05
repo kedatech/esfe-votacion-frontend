@@ -13,7 +13,6 @@ function Concursos({ handleDelete = null, handleEdit = null, updateFlag }) {
       setLoading(true)
       try {
         const data = await getAll();
-        console.log(data);
         setConcursos(data);
       } catch (error) {
         console.error('Error al obtener los datos de concursos:', error);

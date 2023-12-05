@@ -10,7 +10,6 @@ function Estadistica() {
 
   const fetchData = async () => {
     if(concursos.length === 0){
-      console.log("first")
       setLoading(true);
     }
     try {

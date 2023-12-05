@@ -17,9 +17,7 @@ export function VotarPage() {
   const [validate, setValidate] = useState(false);
   const [participante, setParticipante] = useState(null);
   const [error, setError] = useEvent(3);
-
-  console.log("err", error === "")
-
+  
   useEffect(() => {
     
     if(authResult){
@@ -48,7 +46,7 @@ export function VotarPage() {
       {
         error === ""  ?
         validate
-        ?participante? <Puntuar codigoJuez={codigoJuez} participante={participante}/> : <BuscarParticipante setParticipante={setParticipante}/>
+        ?participante? <Puntuar codigoJuez={codigoJuez} participante={participante} setParticipante={setParticipante}/> : <BuscarParticipante setParticipante={setParticipante}/>
         :<LoginJuez setValidate={setValidate}/> : null
         
       }

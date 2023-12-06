@@ -23,7 +23,7 @@ const Accordion = ({item, expandedItem, toggleAccordion}) => {
                 <b>{el.Nombre}</b>
               </div>
               <p> {el.Puntaje
-                ? `Puntaje: ${el.Puntaje}`
+                ? `Puntaje: ${el.Puntaje || 0}`
                 : `Votos: ${el.SumaCalificaciones}`}
               </p>
             </div>

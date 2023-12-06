@@ -1,28 +1,35 @@
 import { getById } from '../../../shared/utils/api/concursos.js';
+import Spinner from '../../../shared/utils/components/Spinner.jsx';
+import SpinnerSmall from '../../../shared/utils/components/SpinnerSmall.jsx';
 import { useEffect, useState } from 'react';
 import BarChart from './BarChart.jsx';
 import PropTypes from 'prop-types';
 
 function ConcursoStats({ Concurso }) {
   const [categorias, setCategorias] = useState([]);
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     const fetchData = async () => {
+      if(categorias.length === 0){
+        setLoading(true);
+      }
       try {
         const datacategorias = await getById(Concurso.Id);
         setCategorias(datacategorias);
       } catch (error) {
         console.error('Error al obtener los datos de categorias:', error);
       }
+      setLoading(false);
     };
     fetchData();
   }, [Concurso.Id]);
 
   return (
     <>
-      {categorias.length === 0 ? (
+      {loading && categorias.length === 0 ? (
         <center>
-          <h2 className='no-categories'>No hay categorías para mostrar</h2>
+          <center><SpinnerSmall /></center>
         </center>
       ) : (
         categorias.map((el) => {

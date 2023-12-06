@@ -64,7 +64,7 @@ export default function BarChart({
 
     return (
         <div className='BarlineContainer'>
-            <h2 className='category'>{"Categoría a "+categoria}</h2>
+            <h2 className='category'>{categoria}</h2>
             {
                 votos.length === 0 ? <h3>Aún no hay votos para mostrar</h3> : <Bar data={midata} options={misoptions} className='BarChart'/>
             }

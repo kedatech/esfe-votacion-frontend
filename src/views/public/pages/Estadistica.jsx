@@ -4,6 +4,7 @@ import CarrerasStats from '../components/CarrerasStats.jsx';
 import Spinner from '../../../shared/utils/components/Spinner.jsx';
 import { getAll } from '../../../shared/utils/api/concursos.js';
 
+
 function Estadistica() {
   const [concursos, setConcursos] = useState([]);
   const [loading, setLoading] = useState(false);
@@ -16,7 +17,7 @@ function Estadistica() {
       const dataConcursos = await getAll();
       setConcursos(dataConcursos);
     } catch (error) {
-      console.error('Error al obtener los datos de concursos:', error);
+      console.error('Error al obtener los datos de concursos stats:', error);
     }
     setLoading(false);
   };
@@ -27,7 +28,7 @@ function Estadistica() {
     const refreshInterval = setInterval(() => {
       console.log("refresh")
       fetchData(); // Llamar a fetchData cada 3 segundos
-    }, 3000);
+    }, 113000);
 
     // Limpiar el intervalo al desmontar el componente
     return () => clearInterval(refreshInterval);
@@ -37,22 +38,12 @@ function Estadistica() {
     <div className="stats-concursos">
       {loading ? <center><Spinner /></center> : null}
 
-      {/* Mostrar concursos solo si loading es false */}
       {!loading && concursos.map(el => (
         <div key={el.Id}>
-          <center><h1>{el.Nombre}</h1></center>
+          {/* <center><h1>{el.Nombre}</h1></center> */}
           <ConcursoStats Concurso={el} />
         </div>
       ))}
-
-      {/* Mostrar estadísticas de carreras solo si loading es false */}
-      {!loading && (
-        <div>
-          <hr />
-          <center><h1>Votos Totales por Carrera</h1></center>
-          <CarrerasStats />
-        </div>
-      )}
     </div>
   );
 }

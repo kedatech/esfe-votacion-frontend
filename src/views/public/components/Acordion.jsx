@@ -24,7 +24,7 @@ const Accordion = ({item, expandedItem, toggleAccordion}) => {
               </div>
               <p> {el.Puntaje
                 ? `Puntaje: ${el.Puntaje || 0}`
-                : `Votos: ${el.SumaCalificaciones}`}
+                : `Votos: ${el.ConteoVotos || 0}`}
               </p>
             </div>
           ))}

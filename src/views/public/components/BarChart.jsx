@@ -54,7 +54,7 @@ export default function BarChart({
         scales: {
             y: {
                 type: 'linear',
-                max: votos.length,
+                max: Math.max(...votos),
                 min: 0,
                 ticks: {
                     stepSize: 1,

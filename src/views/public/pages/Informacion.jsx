@@ -7,7 +7,7 @@ function Informacion() {
       <p>Aquí podrás votar por participantes en algunos de los concursos</p>
 
       <h2>¿Cómo votar?</h2>
-        <p>Paso 1. <Link to={"/home"}>Registrate</Link> (Si ya lo hiciste puedes empezar a votar)</p>
+        <p>Paso 1. <Link to={"/home"}>Inicia sesión</Link> (Si ya lo hiciste puedes empezar a votar)</p>
       <p>Paso 2. <Link to={"/home"}>Votar</Link> Puedes escanear con tu cámara el QR de tu participante o escribe su código</p>
       <div>
         <img src="/images/take-qr.svg" alt="" />

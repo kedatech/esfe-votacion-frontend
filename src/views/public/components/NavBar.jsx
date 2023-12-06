@@ -23,7 +23,7 @@ const NavBar = () => {
       <div className={`nav-list ${menu?"active":""}`} >
         <div to={"/home"} className="logo">
           <img src={logo} />
-          <p>Concurso Aniversario</p>
+          <p>Show Room</p>
         </div>
 
         <NavLink 

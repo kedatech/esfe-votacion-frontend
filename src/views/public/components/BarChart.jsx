@@ -25,8 +25,8 @@ ChartJS.register(
 
 export default function BarChart({ 
     Categoria="Prueba", 
-    Votos=[1,2,0,5,3,4,8,6,9,10],
-    participantes=["esto","es","una","prueba","en","caso","de","ser","null"]}) {
+    Votos=[],
+    participantes=[]}) {
 
     var categoria = Categoria
     var votos = Votos
@@ -36,7 +36,7 @@ export default function BarChart({
         labels: participantes,
         datasets: [
             {
-                label: 'Votos Recibidos',
+                label: 'Puntuaciones',
                 data: votos,
                 backgroundColor: '#427afb'/*#00988d*/
             }
@@ -44,23 +44,29 @@ export default function BarChart({
     }
 
     var misoptions = {
-        responsive : true,
-        animation : true,
-        plugins : {
-            legend : {
-                display : false
+        responsive: true,
+        animation: true,
+        plugins: {
+            legend: {
+                display: false
             }
         },
-        scales : {
-            y : {
-                max: Math.max(...votos) +1,
-                min : 0
+        scales: {
+            y: {
+                type: 'linear',
+                max: votos.length,
+                min: 0,
+                ticks: {
+                    stepSize: 1,
+                    color: '#3261cb'
+                }
             },
             x: {
-                ticks: { color: '#3261cb'}
+                ticks: { color: '#3261cb' }
             }
         }
     };
+    
 
     return (
         <div className='BarlineContainer'>

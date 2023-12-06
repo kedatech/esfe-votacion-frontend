@@ -2,6 +2,7 @@ import useElement from "../../../shared/utils/store/elementStore";
 import {Link, NavLink} from "react-router-dom"
 import Menu from "./_Menu"
 import logo from '/logo-esfe.png'
+import logo2 from '/esfe-logo-sin-fondo-borde.png'
 
 import { ImStatsDots, ImTrophy} from "react-icons/im";
 import { FaBookOpen, FaQrcode} from "react-icons/fa";
@@ -22,7 +23,7 @@ const NavBar = () => {
 
       <div className={`nav-list ${menu?"active":""}`} >
         <div to={"/home"} className="logo">
-          <img src={logo} />
+          <img src={logo2} />
           <p>Show Room</p>
         </div>
 
@@ -47,7 +48,7 @@ const NavBar = () => {
           to={"/estadisticas"}
           onClick={handleClick}
         > 
-         <ImStatsDots/> Estadisticas   
+         <ImStatsDots/> Estadísticas   
         </NavLink>
 
         <NavLink 

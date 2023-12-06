@@ -20,7 +20,7 @@
       // Verificar si el campo de entrada es "Codigo"
       if (name === 'Codigo') {
         // Convertir el valor a mayúsculas
-        const codigo = value.toLowerCase();
+        const codigo = value.toUpperCase();
     
         setFormData((prevFormData) => ({
           ...prevFormData,

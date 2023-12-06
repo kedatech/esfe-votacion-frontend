@@ -8,7 +8,7 @@ function FormCodigo({ handleSubmit }) {
   const [codigo, setCodigo] = useState("")
 
   const handleChange = (event) => {
-    const codigo = event.target.value.toLowerCase();
+    const codigo = event.target.value.toUpperCase();
     setCodigo(codigo);
   }
 
